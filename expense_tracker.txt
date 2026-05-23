@@ -1,0 +1,2 @@
+1,food,nkasn,300.0
+23,food,ctyf,300.0
