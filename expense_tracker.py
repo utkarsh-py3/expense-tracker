@@ -1,5 +1,4 @@
 # Personal Expense Tracker
-
 print("=" * 45)
 print("💸  Welcome to Personal Expense Tracker  💸")
 print("=" * 45)
@@ -40,7 +39,7 @@ def save_expenses():
             file.write(
                 f"{expense['Date']},"
                 f"{expense['Category']},"
-                f"{expense['Description']},"
+                f"{expense['Description']}," 
                 f"{expense['Amount']}\n"
             )
 
@@ -154,6 +153,42 @@ def delete_expense():
         print("-" * 30)
 
 
+def category_total():# FOR THE CATEGORY SUMMARY 
+
+    category_total={} 
+    for expense in expenses:
+        category= expense["Category"] 
+        amount = expense["Amount"]
+        if category in category_total:
+            category_total[category]+=amount
+        else:
+            category_total[category]= amount 
+    print("=====CATEGORY SUMMARY=====\n")  
+    for category, total in category_total.items():
+        print(f"{category:15} : ₹{total}")
+
+    print("=" * 30)
+
+
+def Statistic_dashboard():
+    print("===== STATISTICS =====")
+    if len(expenses)==0:
+        print("\n There is insufficiant data ")
+        return
+    total = 0
+    for expense in expenses:
+        total += expense["Amount"]
+    average= total/len(expenses)    
+    highest = max(expense["Amount"] for expense in expenses)
+    lowest = min(expense["Amount"] for expense in expenses)    
+    print(f"\n{'Total Expense':20}: ₹{total}")
+    print(f"{'Total Transaction':20}: {len(expenses)}")
+    print(f"{'Average Expense':20}: ₹{average}")
+    print(f"{'Highest Expense':20}: ₹{highest}")
+    print(f"{'Lowest Expense':20}: ₹{lowest}")
+    print("="*30)
+
+
 # Main Menu
 while True:
 
@@ -163,7 +198,9 @@ while True:
     print("3. Show Total Expense")
     print("4. Search Category")
     print("5. Delete Expense")
-    print("6. Exit")
+    print("6. Category Total")
+    print("7. Statistic Dashboard")
+    print("8. Exit")
     print("=" * 30)
 
     try:
@@ -189,8 +226,14 @@ while True:
 
     elif choice == 5:
         delete_expense()
-
+    
     elif choice == 6:
+        category_total()
+
+    elif choice == 7:
+        Statistic_dashboard()        
+
+    elif choice ==  8 :
         print("\nThank you for using Expense Tracker 💸")
         break
 

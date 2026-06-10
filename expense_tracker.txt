@@ -1,0 +1,4 @@
+12,food,biufa,400.0
+23,food,auijfbu,800.0
+25,travel,scniunsna,300.0
+23,travel,bchjbsdc,600.0
