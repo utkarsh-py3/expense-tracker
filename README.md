@@ -33,6 +33,6 @@ A command-line Personal Expense Tracker built using Python.
 
 ## Author
 
-Utkarsh
+Utkarsh Rawat
 B.Tech Pharmaceutical Engineering
 IIT BHU
